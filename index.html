@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Cannot go back</h1>
+
+    <script>
+      // Prevent back navigation by pushing a dummy state
+      alert();
+      history.pushState(null, document.title, window.location.href);
+
+      window.addEventListener("popstate", function () {
+        // Push the state again to prevent navigation
+        history.pushState(null, document.title, window.location.href);
+        alert("Back button is disabled!");
+      });
+    </script>
+  </body>
+</html>
